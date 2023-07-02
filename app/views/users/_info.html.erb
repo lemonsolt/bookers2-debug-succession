@@ -1,0 +1,47 @@
+<table class='table'>
+  <tr><%= image_tag user.get_profile_image, size:'100x100' %></tr>
+  <tr>
+	  <th>name</th>
+	  <th><%= user.name %></th>
+  </tr>
+  <tr>
+	  <th>introduction</th>
+	  <th><%= user.introduction %></th>
+  </tr>
+  <tr>
+	  <th>follows</th>
+	  <th><%= link_to user.followers.count,user_followers_path(user) %></th>
+  </tr>
+  <tr>
+	  <th>followers</th>
+	  <th><%= link_to user.followeds.count ,user_followeds_path(user) %></th>
+  </tr>
+  <tr>
+    <% unless current_user == user %>
+      <% if user.is_followed_by?(current_user) %>
+         <th>
+         <%= link_to user_relationships_path(user),method: :delete do %>
+           <button class="btn btn-info">フォロー外す</button>
+         <% end %>
+         </th>
+      <% else %>
+          <th>
+          <%= link_to user_relationships_path(user),method: :post do %>
+            <button class="btn btn-success">フォローする</button>
+          <% end %>
+          </th>
+      <% end %>
+    <% end %>
+    <th>
+      <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+        <%= link_to 'チャットを始める', chat_path(user.id), class: "ml-3" %>
+      <% end %>
+    </th>
+  </tr>
+</table>
+
+<div class='row'>
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
