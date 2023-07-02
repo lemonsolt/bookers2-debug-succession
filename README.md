@@ -22,3 +22,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+<!--途中でファイルをリモートリポジトリからダウンロードした結果-->
+<!--"bookers2-debug"にpushできなくなってしまったので-->
+<!--改めてリモートリポジトリを作り、データをあげています。-->
