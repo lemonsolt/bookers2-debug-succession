@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :rooms,through: :user_rooms
   # ここまで
   has_many :view_counts, dependent: :destroy
+  has_many :guoup_user
+  has_many :groups,through: :group_user
   has_one_attached :profile_image
 
   validates :name, length:{ minimum: 2, maximum: 20 }, uniqueness: true

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h2 class="text-left">Editing Group</h2>
+      <%= form_with model: @group,local:true do |f| %>
+        <div class="form-group">
+          <label>グループ名</label><br>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label>紹介文</label><br>
+          <%= f.text_area :introduction , class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label>グループ画像</label>
+          <%= f.file_field :image, class: "form-control-file group_image", accept: 'image/*' %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Update Group" ,class: 'btn btn-sm btn-primary pl-4 pr-4' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -57,7 +57,7 @@
   <% if user_signed_in? %>
     <div class= "container w-50">
       <div class="row">
-      <div class="center-block search_form">
+      <div class="center-block search_form col-md-8 mx-auto">
         <%= form_with url: search_path, method: :get do |f| %>
           <%= f.text_field :word %>
           <%= f.select :range, options_for_select([['User'], ['Book']])%>
