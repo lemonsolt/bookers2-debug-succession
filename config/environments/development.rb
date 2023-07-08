@@ -77,7 +77,7 @@ Rails.application.configure do
   config.web_console.allowed_ips = '0.0.0.0/0'
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_setting = {
+  config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
