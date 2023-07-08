@@ -22,7 +22,7 @@
           <%@groups.each do |group| %>
             <tr>
               <td><%= image_tag group.get_group_image, size:'50x50',fallback: "no-image-icon.jpg" %></td>
-              
+
               <td>
                 <%= link_to group_path(group) do %>
                   <%= group.name %>
