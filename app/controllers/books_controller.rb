@@ -23,6 +23,11 @@ class BooksController < ApplicationController
     @count_books = Book.all
     @today_book =  @count_books.created_today
     @yesterday_book = @count_books.created_yesterday
+    @days2_book = @count_books.created_2days
+    @days3_book = @count_books.created_3days
+    @days4_book = @count_books.created_4days
+    @days5_book = @count_books.created_5days
+    @days6_book = @count_books.created_6days
     @this_week_book = @count_books.created_this_week
     @last_week_book = @count_books.created_last_week
   end
