@@ -18,8 +18,8 @@ class BooksController < ApplicationController
     @books = Book.includes(:favorites).sort_by {|x| x.favorites.where(created_at: from...to).size}.reverse
     @book = Book.new
     session[:previous_url] = request.referer
-    
-    
+
+
     @count_books = Book.all
     @today_book =  @count_books.created_today
     @yesterday_book = @count_books.created_yesterday

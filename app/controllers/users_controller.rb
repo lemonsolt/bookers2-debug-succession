@@ -6,6 +6,17 @@ class UsersController < ApplicationController
     @book = @user.books
     @books = @user.books
     @book_new = Book.new
+
+    @books = @user.books.page(params[:page]).reverse_order
+    @today_book =  @books.created_today
+    @yesterday_book = @books.created_yesterday
+    @days2_book = @books.created_2days
+    @days3_book = @books.created_3days
+    @days4_book = @books.created_4days
+    @days5_book = @books.created_5days
+    @days6_book = @books.created_6days
+    @this_week_book = @books.created_this_week
+    @last_week_book = @books.created_last_week
   end
 
   def index
@@ -13,7 +24,7 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = User.find(current_user.id)
 
-    
+
   end
 
   def edit
